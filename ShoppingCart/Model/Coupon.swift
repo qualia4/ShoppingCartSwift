@@ -16,7 +16,7 @@ final class Coupon {
 
     func apply(to total: Double) -> Double? {
         guard canBeApplied() else { return nil }
-        if(total < maxDiscount){
+        if total < maxDiscount {
             return 0
         }
         let discount = min(total * (discountPercentage / 100), maxDiscount)
@@ -31,7 +31,3 @@ final class Coupon {
         usageCount += 1
     }
 }
-
-
-
-

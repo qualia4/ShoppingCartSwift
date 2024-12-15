@@ -30,18 +30,14 @@ final class ShoppingCart {
     func calculateFinalPrice() -> Double {
         let totalPrice = calculateTotalPrice()
         var remainingPrice = totalPrice
-        
+
         for coupon in appliedCoupons {
             if let discount = coupon.apply(to: remainingPrice) {
                 remainingPrice -= discount
                 coupon.incrementUsage()
             }
         }
-        
+
         return max(remainingPrice, 0)
     }
 }
-
-
-
-
